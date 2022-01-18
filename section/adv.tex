@@ -1,0 +1,6 @@
+\section{Adversarial Attacks}
+
+\begin{itemize}
+    \item Targeted FGSM: $x^\prime = x - \epsilon \sgn(\nabla_x \mathcal{L}_t(x))$, where $t$ is the target label. Untargeted FGSM: $x^\prime = x + \epsilon \sgn(\nabla_x \mathcal{L}_y (x))$, where $y$ is the original label.
+    \item CW: use L-BFGS to solve $\argmin_\eta ||\eta||_p+c\cdot \text{obj}_t(x+\eta)$, s.t. $x+\eta\in [0,1]^n$.
+\end{itemize}

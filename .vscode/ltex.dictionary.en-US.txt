@@ -1,0 +1,5 @@
+Combinatory
+Categorial
+Kleene
+adaptively
+Untargeted
