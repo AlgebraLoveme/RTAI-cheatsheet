@@ -1,0 +1,33 @@
+\section{Logic in DL}
+
+Goal: do query involving NN; forcing properties into NN.
+
+\subsection*{NN Querying by Optimization}
+
+Idea: translate properties $\phi$ into loss function $T$ and optimize it. 
+
+Challenge: how to find a loss function such that $\forall x, T(\phi)(x)=0\Leftrightarrow x$ satisfies $\phi$. For example, $\phi$ could be: $|z-x|_{\infty}<\epsilon \Rightarrow |NN(z)-NN(x)|_{\infty}<\delta$. 
+
+Useful rules:
+\begin{itemize}
+    \item $x\Rightarrow y$ is equivalent to $\neg x \lor y$.
+    \item $\neg (x \lor y)$ is equivalent to $\neg x \land \neg y$.
+    \item $\neg (x \land y)$ is equivalent to $\neg x \lor \neg y$. 
+\end{itemize}
+
+
+One possible translation (DL2) is:
+\begin{enumerate}
+    \item $t_1\le t_2 \longrightarrow \max(0, t_1-t_2)$.
+    \item $t_1\ne t_2 \longrightarrow I(t_1=t_2)$.
+    \item $t_1=t_2 \longrightarrow T(t_1\le t_2) + T(t_2\le t_1) = |t_1-t_2|$.
+    \item $t_1<t_2 \longrightarrow T(t_1\le t_2) + T(t_1\ne t_2)$.
+    \item $\phi \lor \psi \longrightarrow T(\phi)\cdot T(\psi)$.
+    \item $\phi \land \psi \longrightarrow T(\phi) + T(\psi)$.
+\end{enumerate}
+
+Trick for box constraints: when the input is constrained by a box, pass it to the optimizer such as L-BFGS-B.
+
+\subsection*{Forcing properties of NN}
+
+Goal: $\max_\theta \E_{s\sim D}I(\forall z, \phi(z, s;\theta))$. Equivalently, $\min_\theta \E_{s\sim D} T(\phi)(z^*, s; \theta)$, where $z^* = \argmin_z T(\neg \phi)(z,s;\theta)$. Remember to take out any box constraints.

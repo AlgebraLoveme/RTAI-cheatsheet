@@ -1,0 +1,26 @@
+\section{Certification of NN}
+
+Goal: given a neural network $N$, a constraint over input $\phi$ and a property over outputs $psi$, prove that $\forall i \in I . i \vDash \phi \Rightarrow N(i) \vDash \psi$ or return a violation. We want sound, complete and efficient (scalable to large NN) algorithms, i.e., to either scale sound and complete methods or to make sound but incomplete methods more precise.
+
+\subsection*{Sound vs Complete}
+\begin{itemize}
+    \item Sound: if the property is violated, the program always states the property is violated.
+    \item Complete: if the property holds, the program always states the property holds.
+\end{itemize}
+
+Incomplete but sound methods include convex relaxations. Complete and sound methods include Mixed-Integer Linear Programming (MILP).
+
+\subsection*{Convex Relaxations}
+\begin{itemize}
+    \item Box. Use intervals as the approximation.
+    \item Zonotope. Represent every variable by $x_i = a^i_0+\sum_j a_j^i \epsilon_j = a_i^T e$, where $\epsilon_i\in [-1,1]$, $a_i\ge 0$. (1) The encoding for affine layer $y=Wx+b$ is $y=W A e+b$, which is exact. (2) To compute the encoding for ReLU layers, we first obtain box bounds by plugging in $\epsilon=-1$ and $\epsilon=1$. When it is strictly positive (negative), then use $y=x$ ($y=0$). For cross-boundary cases, use the line between $(l,0)$ and $(u,u)$ as the upper bound ($y=\lambda(x-l)$, $\lambda=\frac{u}{u-l}$) and its parallel as the lower bound ($y=\lambda x$). Then we compute the standard form of this zonotope by $y = \lambda(x-tl)$, $t\in [0,1]$, plug in $t=(\epsilon_{\text{new}}+1)/2$, $\epsilon_{\text{new}}\in [-1,1]$ and expand.
+    \item DeepPoly. Represent every variable by $x_i \ge \sum_j w^l_j x_j + v^l$, $x_i \le \sum_j w^u_j x_j +v_j$ and $l_i \le x_i \le u_i$. First do a forward propagation and then a backward propagation. (1) For affine layer $y=Wx+b$, use $Wx+b\le y\le Wx+b$. (2) For ReLU layers, if it is strictly positive (negative), use $x\le y\le x$ ($0\le y\le 0$). Otherwise, apply min-area heuristic to choose one from $0\le y\le \lambda(x-l)$ and $\lambda x\le y \le \lambda(x-l)$, i.e., choose the first one if $|l|\ge|u|$ o.w. the second one. When forward-propagating, we compute the interval bound by back-substituting to the first layer.
+\end{itemize}
+
+Comparison between relaxations: as long as the relaxation of one method is not included by another, they cannot be compared, although one might have a smaller area.
+
+\subsection*{Complete Methods}
+\begin{itemize}
+    \item MILP: complete for ReLU network at the cost that it is at least NP-complete. The standard form is to $\min c^T x$, s.t. $Ax \le_p b$, $l \le_p x[\mathcal{R}] \le_p u$ and $x[\neg\mathcal{R}] \in Z^k$, where $x[\mathcal{R}]$ means the continuous component of $x$ and $\le_p$ means point-wise comparison. (1) The encoding for affine layer is: $Wx+b\le y\le Wx+b$. (2) The encoding for ReLU is: $y\le x-l(1-a)$, $y\ge x$, $y\le u\cdot a$, $y\ge 0$ and $a\in\{0,1\}$. $a$ serves as a ``state'' indicator to encode a piece-wise linear function. (3) Assume the goal is to prove $o_0>o_1$, then we do $\min o_0-o_1$ and see if the outcome is positive. (4) $l,u$ are pre-computed by Box. MILP benefits from Box bounds in that it could stop further exploration of infeasible combinations of integer variables, e.g., if the objective lower bound is positive when $a_1=0$, then there is no need to explore $a_2$ for $a_1=0$.
+\end{itemize}
+

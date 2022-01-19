@@ -3,3 +3,6 @@ Categorial
 Kleene
 adaptively
 Untargeted
+Zonotope
+zonotope
+Cross-sillo

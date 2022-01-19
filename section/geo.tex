@@ -1,0 +1,16 @@
+\section{Certifying Geometric Transformations}
+
+\begin{itemize}
+    \item Rotation: $T_\phi(x, y) = (x\cos(\phi)-y\sin(\phi), x\sin(\phi)+y\cos(\phi))$.
+    \item Translation: $T_{\delta_x, \delta_y}(x,y) = (x+\delta_x, y+\delta_y)$.
+    \item Scaling: $T_\lambda(x,y) = (\lambda x,\lambda y)$.
+    \item Bilinear interpolation for non-integer $(x,y)$: $I(x, y)=p_{x_{1}, y_{1}}\left(x_{2}-x\right)\left(y_{2}-y\right)+p_{x_{1}, y_{2}}\left(x_{2}-x\right)\left(y-y_{1}\right)+p_{x_{2}, y_{1}}\left(x-x_{1}\right)\left(y_{2}-y\right)+p_{x_{2}, y_{2}}\left(x-x_{1}\right)\left(y-y_{1}\right)$, where $x_1\le x\le x_2$, $y_1\le y\le y_2$, $x_2=x_1+1$ and $y_2=y_1+1$.
+\end{itemize}
+
+\subsection*{DeepG}
+
+Idea: use convex approximation for the exact input set. DeepG use the shape of DeepPoly but use a different strategy. It bounds all operations done in the $I_\kappa$ simultaneously, and thus is more tight than DeepPoly.
+
+DeepG finds two planes such that $w_l^T \kappa+b_l \le I_\kappa \le w_u^T\kappa+b_u$, where $\kappa$ is the hyperparameter of transformation. It uses the min-volume heuristic: $w_l, b_l = \argmin \E (I_\kappa - (w_l^T \kappa+b_l))$. Using linear programming, we can solve this optimization for a finite number of sampled points.
+
+To extend the soundness to the whole hyperparameter space, we can modify the constraint by translating the plane, i.e., use $b_l = \hat{b_l}-\delta_l$ and $b_u = \hat{b_u}+\delta_u$. We can compute $\delta$ by either using box relaxation on $f(\kappa)=\hat{w_l}^T\kappa+\hat{b_l}-I_\kappa$, or by using Lipschitz and mean-value theorem on $f(\kappa)$: $f(\kappa)-f(\frac{1}{2}(h_u+h_l))\le |L|^T(\frac{1}{2}(h_u-h_l))$, where $\kappa \in [h_l, h_u]$. After deriving the convex relaxation for the transformation, we can use DeepPoly to complete the verification. To further improve the approximation, we can decompose the hyperparameter space, and validate each of them separately.

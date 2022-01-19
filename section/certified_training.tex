@@ -1,0 +1,18 @@
+\section{Certified Training}
+
+Goal: train NN so that it has maximum certified accuracy.
+
+Formalization: 
+$$\min_\theta \E_{x,y} \max_{x^\prime\in \gamma(NN^{\#}(S(x)))} \mathcal{L}(x^\prime, y;\theta)$$
+where $S(x)$ is the allowed input set, $NN^{\#}$ is the abstraction of NN (e.g., DeepPoly abstraction). 
+\begin{itemize}
+    \item Suppose we use $\mathcal{L}(z, y) = \max_{q\ne y}(z_q-z_y)$. Then for each iteration, we first compute the convex relaxation of the input, and then compute the interval bound for $z_q-z_y$. Then we use the upper bound as the loss and update according to the gradient (Note that it is still differentiable).
+    \item Suppose we use the cross entropy loss. Then we first compute the interval bound for $z_i$ and pick the upper bound for incorrect classes and lower bound for correct classes to form a new vector. Then we use this new vector to compute the cross entropy and update.
+\end{itemize}
+There are a few practical tricks:
+\begin{enumerate}
+    \item Start with a small $S(x)$ and then grow it.
+    \item Dynamically switch between standard loss and the certified loss.
+\end{enumerate}
+
+To avoid increasing difficulty in the optimization due to better relaxations, Convex Layerwise Adversarial Training (COLT) is developed. The goal of COLT is to find a feasible point in the first-layer relaxation so that the loss is maximized and use this feasible point in the certified loss. When combined with Zonotope, it uses projection in the $\epsilon$ space since each $\epsilon \in [0,1]^n$ corresponds to a point in the zonotope. Although it is not the min-distance projection in the zonotope, it avoids the problem when the zonotope lies in a lower dimension where direct projection is not possible. It allows better results when a better relaxation is used.

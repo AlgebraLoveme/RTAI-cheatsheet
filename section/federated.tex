@@ -1,0 +1,31 @@
+\section{Federated Learning}
+
+Types of Federated Learning:
+\begin{enumerate}
+    \item Cross-device. (1) Huge \#sources, (2) each with small amount of data, (3) dynamically drop in and out in the learning process, (4) contact rarely. Example: Google spell checker.
+    \item Cross-sillo. (1) Limited \#sources, (2) each with a lot of data, (3) participate constantly, (4) potentially heterogeneous. Example: Hospitals MRI segmentation.
+\end{enumerate}
+
+Learning Epoch: (1) server selects clients to participate; (2) local computation on private data and send information to the server; (3) aggregation of local information on the server; (4) send aggregated information to clients.
+
+\subsection*{Common Algorithms}
+\begin{itemize}
+    \item FedSGD. Do one iteration of local SGD on global weights and average them as the global update. Pros: It has convergence guarantee. Cons: Expensive communication.
+    \item FedAvg. Do several iterations of local SGD on the global weights and average the local weights as the global weight. Pros: Less communication. Cons: No guarantee of convergence.
+\end{itemize}
+
+\subsection*{Common Issues}
+\begin{itemize}
+    \item Honest-but-Curious Server: honestly follow the algorithm but want to expose private data of clients. Gradient inversion: match gradients of reconstructed and client data.
+    \item Client-side poisoning: send crafted updates to the server to force divergence or bad behavior on certain data. 
+    \item Client fairness: model behaves well on average but poorly for certain clients due to heterogeneity. There is a trade-off between preventing client-side poisoning and client fairness because the server cannot tell whether a bad update is malicious or because of heterogeneity.
+\end{itemize}
+
+\subsection*{Defenses}
+
+Differential Privacy. Definition: a randomized algorithm $M$ is differentially private w.r.t. $\epsilon$ and $\delta$ iff for all similar dataset $D, D^\prime$ ($|D-D^\prime|=1$) and all subsets of outputs, $P(M(D)\in S) \le e^\epsilon P(M(D^\prime)\in S)+\delta$.
+
+\begin{itemize}
+    \item Clip the gradient and add noises to it to achieve DP.
+    \item Customization of the local model. Allowing clients to use the global model and customize locally can help to solve the dilemma.
+\end{itemize}

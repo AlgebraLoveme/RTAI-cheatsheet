@@ -1,0 +1,21 @@
+\section{Fairness}
+
+\subsection*{Individual Fairness}
+
+Goal: for similar inputs, give similar outputs. 
+
+Key: define similarity $\phi(x,x^\prime)\rightarrow \{0,1\}$. Then use DL2 to translate the similarity constraint into loss functions.
+
+\begin{itemize}
+    \item Pre-process (data producer): provably learn a representation $z=f_\theta$ s.t. $\phi(x,x^\prime)\Rightarrow |z-z^\prime|_2<\delta$.
+    \item In-process (data consumer): provably learn a classifier $h_\psi$ s.t. $|z-z^\prime|_2<\delta \Rightarrow h_\psi(z) = h_\psi(z^\prime)$.
+\end{itemize}
+
+\subsection*{Group Fairness}
+
+Goal: $P(Y\mid G=0)=P(Y\mid G=1)$, e.g., fairness w.r.t. race and gender.
+
+\begin{itemize}
+    \item Ignore target features. Usually does not work due to the correlation between features.
+    \item Estimate probability and use PAC framework.
+\end{itemize}
