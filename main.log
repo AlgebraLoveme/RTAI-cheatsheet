@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.12.22)  19 JAN 2022 20:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.12.22)  27 JAN 2022 13:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1158,15 +1158,15 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: landscape 
-* h-part:(L,W,R)=(5.69054pt, 833.66577pt, 5.69054pt)
-* v-part:(T,H,B)=(5.69054pt, 586.1268pt, 5.69054pt)
+* h-part:(L,W,R)=(11.38109pt, 822.28467pt, 11.38109pt)
+* v-part:(T,H,B)=(11.38109pt, 574.7457pt, 11.38109pt)
 * \paperwidth=845.04684pt
 * \paperheight=597.50787pt
-* \textwidth=833.66577pt
-* \textheight=586.1268pt
-* \oddsidemargin=-66.57945pt
-* \evensidemargin=-66.57945pt
-* \topmargin=-103.57945pt
+* \textwidth=822.28467pt
+* \textheight=574.7457pt
+* \oddsidemargin=-60.8889pt
+* \evensidemargin=-60.8889pt
+* \topmargin=-97.8889pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=11.0pt
@@ -1263,19 +1263,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--65
 File: img/rand_smooth.png Graphic file (type png)
 <use img/rand_smooth.png>
 Package pdftex.def Info: img/rand_smooth.png  used on input line 9.
-(pdftex.def)             Requested size: 200.91644pt x 78.1642pt.
+(pdftex.def)             Requested size: 198.07117pt x 77.05992pt.
 <img/rand-predict.png, id=6, 1057.9525pt x 343.2825pt>
 File: img/rand-predict.png Graphic file (type png)
 <use img/rand-predict.png>
 Package pdftex.def Info: img/rand-predict.png  used on input line 13.
-(pdftex.def)             Requested size: 200.91644pt x 65.19292pt.
+(pdftex.def)             Requested size: 198.07117pt x 64.26578pt.
 ) (./section/geo.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
 []\T1/jkp/m/n/10 (+20) Rotation: $[]\OML/jkp/m/it/10 T[]\OT1/jkp/m/n/10 (+20) (\OML/jkp/m/it/10 x; y\OT1/jkp/m/n/10 (+20) ) = (\OML/jkp/m/it/10 x []\OT1/jkp/m/n/10 (+20) (\OML/jkp/m/it/10 ^^^\OT1/jkp/m/n/10 (+20) ) \OMS/jkp/m/n/10 ^^@
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
+Underfull \hbox (badness 7667) in paragraph at lines 7--8
 []\T1/jkp/m/n/10 (+20) Bilinear in-ter-po-la-ti-on for non-integer
  []
 
@@ -1284,14 +1284,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 []\OT1/jkp/m/n/10 (+20) (\OML/jkp/m/it/10 x; y\OT1/jkp/m/n/10 (+20) )$[]\T1/jkp/m/n/10 (+20) : $[]\OML/jkp/m/it/10 I\OT1/jkp/m/n/10 (+20) (\OML/jkp/m/it/10 x; y\OT1/jkp/m/n/10 (+20) ) = \OML/jkp/m/it/10 p[] [] [] \OT1/jkp/m/n/10 (+20) +
  []
 
-)
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/m/n' aliased to
-(Font)              `T1/SourceSansPro-TLF/regular/n' on input line 69.
-LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/regular/n' will be
-(Font)              scaled to size 9.0pt on input line 69.
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 69.
- [1
+) [1
 
 
 
@@ -1301,9 +1294,9 @@ Package mdframed Info: mdframed inside a box
 File: img/abstract_interpret.png Graphic file (type png)
 <use img/abstract_interpret.png>
 Package pdftex.def Info: img/abstract_interpret.png  used on input line 4.
-(pdftex.def)             Requested size: 401.83289pt x 261.6351pt.
+(pdftex.def)             Requested size: 396.14233pt x 257.92511pt.
 )
-Overfull \hbox (200.91644pt too wide) in paragraph at lines 4--75
+Overfull \hbox (198.07117pt too wide) in paragraph at lines 4--75
 [][]
  []
 
@@ -1312,22 +1305,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--75
 
  []
 
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 76.
 [2 <./img/abstract_interpret.png>] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 24009 strings out of 479382
- 473675 string characters out of 5873307
- 872623 words of memory out of 5000000
- 40286 multiletter control sequences out of 15000+600000
- 516250 words of font info for 277 fonts, out of 8000000 for 9000
+ 23828 strings out of 479382
+ 469133 string characters out of 5873307
+ 870105 words of memory out of 5000000
+ 40140 multiletter control sequences out of 15000+600000
+ 498297 words of font info for 252 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,13n,111p,994b,1087s stack positions out of 5000i,500n,10000p,200000b,80000s
-{d:/texlive/2020/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{d:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}{d:/texlive/2020/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc}<d:/texlive/2020/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Bold.pfb><d:/texlive/2020/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpmia.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpsya.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpsyb.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb>
-Output written on main.pdf (2 pages, 502897 bytes).
+ 108i,6n,111p,994b,389s stack positions out of 5000i,500n,10000p,200000b,80000s
+{d:/texlive/2020/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{d:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}{d:/texlive/2020/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc}<d:/texlive/2020/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Bold.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpmia.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpsya.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpsyb.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb>
+Output written on main.pdf (2 pages, 451640 bytes).
 PDF statistics:
  72 PDF objects out of 1000 (max. 8388607)
  49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 53276 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 47132 words of extra memory for PDF output out of 51595 (max. 10000000)
 

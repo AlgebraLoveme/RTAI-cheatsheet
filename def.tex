@@ -75,12 +75,13 @@ RTAI, Yuhao Mao,~Page~\thepage
    \fi
    \process@cols\mult@gfirstbox{%
 %%%%% START CHANGE
-\ifnum\count@=\numexpr\mult@rightbox+2\relax
-          \setbox\count@\vsplit\@cclv to \dimexpr \dimen@-1cm\relax
-\setbox\count@\vbox to \dimen@{\vbox to 1cm{\header}\unvbox\count@\vss}%
-\else
-      \setbox\count@\vsplit\@cclv to \dimen@
-\fi
+% \ifnum\count@=\numexpr\mult@rightbox+2\relax
+%           \setbox\count@\vsplit\@cclv to \dimexpr \dimen@-1cm\relax
+% \setbox\count@\vbox to \dimen@{\vbox to 1cm{\header}\unvbox\count@\vss}%
+% \else
+%       \setbox\count@\vsplit\@cclv to \dimen@
+% \fi
+\setbox\count@\vsplit\@cclv to \dimen@
 %%%%% END CHANGE
             \set@keptmarks
             \setbox\count@

@@ -5,3 +5,5 @@
     \item CW: use L-BFGS to solve $\argmin_\eta ||\eta||_p+c\cdot \text{obj}_t(x+\eta)$, s.t. $x+\eta\in [0,1]^n$. Function obj satisfies $\text{obj}_t(x+\eta)\le 0 \Rightarrow f(x+\eta)=t$.
     \item PGD: iteratively run FGSM, each time with a small step. Typically used for adversarial training.
 \end{itemize}
+
+Defense: $\min_\theta \E_{x,y} [\max_{x^\prime\in S(x)} L(x^\prime, y; \theta)]$.

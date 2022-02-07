@@ -2,7 +2,7 @@
 
 Goal: train NN so that it has maximum certified accuracy.
 
-Formalization: 
+\textbf{DiffAI} Formalization: 
 $$\min_\theta \E_{x,y} \max_{x^\prime\in \gamma(NN^{\#}(S(x)))} \mathcal{L}(x^\prime, y;\theta)$$
 where $S(x)$ is the allowed input set, $NN^{\#}$ is the abstraction of NN (e.g., DeepPoly abstraction). 
 \begin{itemize}
@@ -15,4 +15,4 @@ There are a few practical tricks:
     \item Dynamically switch between standard loss and the certified loss.
 \end{enumerate}
 
-To avoid increasing difficulty in the optimization due to better relaxations, Convex Layerwise Adversarial Training (COLT) is developed. The goal of COLT is to find a feasible point in the first-layer relaxation so that the loss is maximized and use this feasible point in the certified loss. When combined with Zonotope, it uses projection in the $\epsilon$ space since each $\epsilon \in [0,1]^n$ corresponds to a point in the zonotope. Although it is not the min-distance projection in the zonotope, it avoids the problem when the zonotope lies in a lower dimension where direct projection is not possible. It allows better results when a better relaxation is used.
+To avoid increasing difficulty in the optimization due to better relaxations, Convex Layerwise Adversarial Training (\textbf{COLT}) is developed. The goal of COLT is to find a feasible point in the first-layer relaxation so that the loss is maximized and use this feasible point in the certified loss. When combined with Zonotope, it uses projection in the $\epsilon$ space since each $\epsilon \in [0,1]^n$ corresponds to a point in the zonotope. Although it is not the min-distance projection in the zonotope, it avoids the problem when the zonotope lies in a lower dimension where direct projection is not possible. It allows better results when a better relaxation is used.
